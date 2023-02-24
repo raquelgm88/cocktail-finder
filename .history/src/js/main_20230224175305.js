@@ -3,7 +3,7 @@
 const search = document.querySelector('.js__input');
 const button = document.querySelector('.js__button');
 const cocktailList = document.querySelector('.js__ul_list');
-//const fav = document.querySelector('.js__favourites');
+const fav = document.querySelector('.js__favourites');
 let cocktails = [];
 
 
