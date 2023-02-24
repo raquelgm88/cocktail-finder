@@ -25,12 +25,12 @@ function getCocktails(searchValue) {
         name: drink.strDrink,
         image: drink.strImageSource
       }) );
-      for (let i=0; i<cocktails.length; i++) {
-        if (cocktails[i].image === null) {
-            cocktails[i].image = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
-        }
+      console.log(cocktails);
+    });
+for (let i=0; i<cocktails.length; i++) {
+    if (cocktails[1].image === null) {
+        
     }
-});
 }
 
 

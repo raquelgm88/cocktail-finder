@@ -21,16 +21,16 @@ function getCocktails(searchValue) {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`)
     .then((response) => response.json())
     .then((data) => {
+        console.log(data);
       cocktails = data.drinks.map((drink)=>({
         name: drink.strDrink,
         image: drink.strImageSource
       }) );
-      for (let i=0; i<cocktails.length; i++) {
-        if (cocktails[i].image === null) {
-            cocktails[i].image = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
-        }
-    }
-});
+    });
+console.log(cocktails);
+    /*if (cocktails.image === null) {
+
+    } */
 }
 
 

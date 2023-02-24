@@ -29,9 +29,7 @@ function getCocktails(searchValue) {
         if (cocktails[i].image === null) {
             cocktails[i].image = 'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
         }
-    }
-});
-}
+    })};
 
 
 //Función click botón "Buscar"
