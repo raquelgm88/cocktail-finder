@@ -17,11 +17,11 @@ const button = document.querySelector('.js__button');
 
 //Función para obtener los datos de la API
 function getCocktails(searchValue) {
-
+    let cocktails = [];
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`)
     .then((response) => response.json())
     .then((data) => {
-      let cocktails = data.drinks.map((drink)=>({
+      cocktails = data.drinks.map((drink)=>({
         name: drink.strDrink,
         image: drink.strImageSource
       }) );
