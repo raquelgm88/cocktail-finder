@@ -16,11 +16,10 @@ function checkLocalStorage() {
     favCocktails = infoStorage;
     renderFavCocktails();
   }
-
 }
 
 checkLocalStorage();
-getCocktails();
+
 
 
 //Función para pintar los cócteles en el HTML

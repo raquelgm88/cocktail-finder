@@ -11,12 +11,11 @@ let favCocktails = [];
 //Función para ver si hay datos en el localStorage y pintarlos
 function checkLocalStorage() {
   const infoStorage = JSON.parse(localStorage.getItem('favorites'));
-
+  console.log(infoStorage);
   if (infoStorage) {
     favCocktails = infoStorage;
     renderFavCocktails();
   }
-
 }
 
 checkLocalStorage();
@@ -41,17 +40,11 @@ function renderFavCocktails () {
   }
 }
 
-
 //Función para obtener los datos de la API
 function getCocktails() {
-  let value = '';
-  if (search.value === '') {
-    value = 'margarita';
-  } else {
-    value = search.value;
-  }
+  const searchValue = search.value;
 
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`)
     .then((response) => response.json())
     .then((data) => {
       cocktails = data.drinks.map((drink)=>({
@@ -66,6 +59,8 @@ function getCocktails() {
       }
       renderCocktails();
       addEventToCard();
+      
+
     });
 }
 
@@ -87,16 +82,17 @@ function handleClickCard(event) {
   const idSelected = event.currentTarget.id;
   //Uso find porque me devuelve el primer elemento que cumple la concidión
   const favCard = cocktails.find(eachCocktail => eachCocktail.id===idSelected);
-
+  
   //Uso findIndex para ver las posiciones donde están los cócteles. Si es -1, no está en mi lista de favoritos
   const indexCocktail = favCocktails.findIndex(eachCocktail => eachCocktail.id===idSelected);
-
+  console.log(indexCocktail);
   //Compruebo si ya existe el cóctel en favoritos
   //si el index no está, añado el cóctel a favoritos
   if(indexCocktail === -1) {
     favCocktails.push(favCard);
-    localStorage.setItem('favorites', JSON.stringify(favCocktails));
+    localStorage.setItem('favorites', JSON.stringify(favCard));
   }
+  console.log(localStorage);
 
   renderFavCocktails();
   

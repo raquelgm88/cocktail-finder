@@ -16,11 +16,10 @@ function checkLocalStorage() {
     favCocktails = infoStorage;
     renderFavCocktails();
   }
-
 }
 
 checkLocalStorage();
-getCocktails();
+
 
 
 //Función para pintar los cócteles en el HTML
@@ -44,14 +43,9 @@ function renderFavCocktails () {
 
 //Función para obtener los datos de la API
 function getCocktails() {
-  let value = '';
-  if (search.value === '') {
-    value = 'margarita';
-  } else {
-    value = search.value;
-  }
+  const searchValue = search.value;
 
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`)
     .then((response) => response.json())
     .then((data) => {
       cocktails = data.drinks.map((drink)=>({

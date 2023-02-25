@@ -16,11 +16,10 @@ function checkLocalStorage() {
     favCocktails = infoStorage;
     renderFavCocktails();
   }
-
 }
 
 checkLocalStorage();
-getCocktails();
+
 
 
 //Función para pintar los cócteles en el HTML
@@ -45,6 +44,7 @@ function renderFavCocktails () {
 //Función para obtener los datos de la API
 function getCocktails() {
   let value = '';
+  debugger;
   if (search.value === '') {
     value = 'margarita';
   } else {
