@@ -9,7 +9,6 @@ let favCocktails = [];
 
 
 
-
 //Función para pintar los cócteles en el HTML
 function renderCocktails () {
   cocktailList.innerHTML = '';
@@ -47,7 +46,6 @@ function getCocktails() {
       }
       renderCocktails();
       addEventToCard();
-      
 
     });
 }
@@ -75,15 +73,13 @@ function handleClickCard(event) {
   const indexCocktail = favCocktails.findIndex(eachCocktail => eachCocktail.id===idSelected);
   console.log(indexCocktail);
   //Compruebo si ya existe el cóctel en favoritos
-  //si el index no está, añado el cóctel a favoritos
   if(indexCocktail === -1) {
     favCocktails.push(favCard);
-    localStorage.setItem('favorites', JSON.stringify(favCard));
+  } else {
+    favCocktails.splice(indexCocktail, 1);
   }
-  console.log(localStorage);
 
   renderFavCocktails();
-  
 
 }
 
@@ -97,7 +93,6 @@ function addEventToCard() {
   for (const eachCard of cards) {
     eachCard.addEventListener('click', handleClickCard);
   }
-  
 }
 
 

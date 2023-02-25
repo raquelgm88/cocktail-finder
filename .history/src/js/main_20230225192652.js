@@ -9,7 +9,6 @@ let favCocktails = [];
 
 
 
-
 //Función para pintar los cócteles en el HTML
 function renderCocktails () {
   cocktailList.innerHTML = '';
@@ -48,7 +47,6 @@ function getCocktails() {
       renderCocktails();
       addEventToCard();
       
-
     });
 }
 
@@ -66,27 +64,28 @@ function handleClickButton(event) {
 //Función click en cóctel
 function handleClickCard(event) {
   event.preventDefault();
+  console.log(event.currentTarget.id);
   //Variable donde almaceno los id de las tarjetas donde sucede el evento(click)
   const idSelected = event.currentTarget.id;
   //Uso find porque me devuelve el primer elemento que cumple la concidión
   const favCard = cocktails.find(eachCocktail => eachCocktail.id===idSelected);
-  
-  //Uso findIndex para ver las posiciones donde están los cócteles. Si es -1, no está en mi lista de favoritos
-  const indexCocktail = favCocktails.findIndex(eachCocktail => eachCocktail.id===idSelected);
-  console.log(indexCocktail);
-  //Compruebo si ya existe el cóctel en favoritos
-  //si el index no está, añado el cóctel a favoritos
-  if(indexCocktail === -1) {
-    favCocktails.push(favCard);
-    localStorage.setItem('favorites', JSON.stringify(favCard));
-  }
-  console.log(localStorage);
+  console.log(favCard);
 
+  //guardo los cocteles favoritos en el array de favoritos
+  favCocktails.push(favCard);
+  console.log(favCocktails);
   renderFavCocktails();
-  
 
 }
-
+//Función para que sólo se almacene una vez cada cócktel en favoritos
+function storeOnce() {
+  //Uso findIndex para ver las posiciones donde están los cócteles
+  const indexCocktail = favCocktails.findIndex(eachCocktail => eachCocktail.id===idSelected);
+  //Compruebo si ya existe el cóctel en favoritos
+  if(indexCocktail === -1) {
+    favCocktails.push(favCard);
+  }
+}
 
 
 //Función de evento sobre cóctel
@@ -97,7 +96,6 @@ function addEventToCard() {
   for (const eachCard of cards) {
     eachCard.addEventListener('click', handleClickCard);
   }
-  
 }
 
 

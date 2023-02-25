@@ -9,7 +9,6 @@ let favCocktails = [];
 
 
 
-
 //Función para pintar los cócteles en el HTML
 function renderCocktails () {
   cocktailList.innerHTML = '';
@@ -78,15 +77,14 @@ function handleClickCard(event) {
   //si el index no está, añado el cóctel a favoritos
   if(indexCocktail === -1) {
     favCocktails.push(favCard);
-    localStorage.setItem('favorites', JSON.stringify(favCard));
   }
-  console.log(localStorage);
+  localStorage.setItem('favorites', JSON.stringify(favCard));
 
   renderFavCocktails();
   
 
 }
-
+localStorage.setItem('favorites', JSON.stringify(favCocktails));
 
 
 //Función de evento sobre cóctel
@@ -97,7 +95,6 @@ function addEventToCard() {
   for (const eachCard of cards) {
     eachCard.addEventListener('click', handleClickCard);
   }
-  
 }
 
 

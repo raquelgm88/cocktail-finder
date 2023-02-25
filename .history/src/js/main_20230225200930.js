@@ -6,7 +6,7 @@ const cocktailList = document.querySelector('.js__ul_list');
 const fav = document.querySelector('.js__ul_fav');
 let cocktails = [];
 let favCocktails = [];
-
+localStorage.setItem('favorites', JSON.stringify(favCocktails));
 
 
 
@@ -78,9 +78,8 @@ function handleClickCard(event) {
   //si el index no está, añado el cóctel a favoritos
   if(indexCocktail === -1) {
     favCocktails.push(favCard);
-    localStorage.setItem('favorites', JSON.stringify(favCard));
   }
-  console.log(localStorage);
+  
 
   renderFavCocktails();
   
@@ -97,7 +96,7 @@ function addEventToCard() {
   for (const eachCard of cards) {
     eachCard.addEventListener('click', handleClickCard);
   }
-  
+  localStorage.setItem('favorites', JSON.stringify(favCard));
 }
 
 

@@ -6,7 +6,7 @@ const cocktailList = document.querySelector('.js__ul_list');
 const fav = document.querySelector('.js__ul_fav');
 let cocktails = [];
 let favCocktails = [];
-
+localStorage.setItem('favorites', JSON.stringify(favCocktails));
 
 
 
@@ -80,7 +80,7 @@ function handleClickCard(event) {
     favCocktails.push(favCard);
     localStorage.setItem('favorites', JSON.stringify(favCard));
   }
-  console.log(localStorage);
+  
 
   renderFavCocktails();
   

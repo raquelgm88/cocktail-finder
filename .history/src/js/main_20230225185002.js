@@ -7,24 +7,17 @@ const fav = document.querySelector('.js__ul_fav');
 let cocktails = [];
 let favCocktails = [];
 
-
-
+//Función para pintar un cóctel
+function renderOneCocktail() {
+  let html = `<li class="js__list_item" id=${eachCocktail.id}>
+  <img class="js__img" src="${eachCocktail.image}" />${eachCocktail.name}</li>`;
+}
 
 //Función para pintar los cócteles en el HTML
 function renderCocktails () {
   cocktailList.innerHTML = '';
   for (const eachCocktail of cocktails) {
-    cocktailList.innerHTML += `<li class="js__list_item" id=${eachCocktail.id}>
-<img class="js__img" src="${eachCocktail.image}" />${eachCocktail.name}</li>`;
-  }
-}
-
-//Función para pintar los favoritos en el HTML
-function renderFavCocktails () {
-  fav.innerHTML = '';
-  for (const eachFav of favCocktails) {
-    fav.innerHTML += `<li class="js__list_item" id=${eachFav.id}>
-    <img class="js__img" src="${eachFav.image}" />${eachFav.name}</li>`;
+    cocktailList.innerHTML += html;
   }
 }
 
@@ -47,8 +40,6 @@ function getCocktails() {
       }
       renderCocktails();
       addEventToCard();
-      
-
     });
 }
 
@@ -61,33 +52,32 @@ function handleClickButton(event) {
 
 }
 
-
-
 //Función click en cóctel
 function handleClickCard(event) {
   event.preventDefault();
+  console.log(event.currentTarget.id);
   //Variable donde almaceno los id de las tarjetas donde sucede el evento(click)
   const idSelected = event.currentTarget.id;
   //Uso find porque me devuelve el primer elemento que cumple la concidión
   const favCard = cocktails.find(eachCocktail => eachCocktail.id===idSelected);
-  
-  //Uso findIndex para ver las posiciones donde están los cócteles. Si es -1, no está en mi lista de favoritos
-  const indexCocktail = favCocktails.findIndex(eachCocktail => eachCocktail.id===idSelected);
-  console.log(indexCocktail);
-  //Compruebo si ya existe el cóctel en favoritos
-  //si el index no está, añado el cóctel a favoritos
-  if(indexCocktail === -1) {
-    favCocktails.push(favCard);
-    localStorage.setItem('favorites', JSON.stringify(favCard));
-  }
-  console.log(localStorage);
+  console.log(favCard);
+
+  //guardo los cocteles favoritos en el array de favoritos
+  favCocktails.push(favCard);
+  console.log(favCocktails);
 
   renderFavCocktails();
-  
 
 }
 
-
+//pinto los favoritos en el listado HTML
+function renderFavCocktails () {
+  fav.innerHTML = '';
+  for (const eachCocktail of favCocktails) {
+    cocktailList.innerHTML += `<li class="js__list_item" id=${eachCocktail.id}>
+<img class="js__img" src="${eachCocktail.image}" />${eachCocktail.name}</li>`;
+  }
+}
 
 //Función de evento sobre cóctel
 function addEventToCard() {
@@ -97,7 +87,6 @@ function addEventToCard() {
   for (const eachCard of cards) {
     eachCard.addEventListener('click', handleClickCard);
   }
-  
 }
 
 

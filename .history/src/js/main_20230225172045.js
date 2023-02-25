@@ -8,23 +8,12 @@ let cocktails = [];
 let favCocktails = [];
 
 
-
-
 //Función para pintar los cócteles en el HTML
 function renderCocktails () {
   cocktailList.innerHTML = '';
   for (const eachCocktail of cocktails) {
-    cocktailList.innerHTML += `<li class="js__list_item" id=${eachCocktail.id}>
+    cocktailList.innerHTML += `<li class="js__list_item favourites" id=${eachCocktail.id}>
 <img class="js__img" src="${eachCocktail.image}" />${eachCocktail.name}</li>`;
-  }
-}
-
-//Función para pintar los favoritos en el HTML
-function renderFavCocktails () {
-  fav.innerHTML = '';
-  for (const eachFav of favCocktails) {
-    fav.innerHTML += `<li class="js__list_item" id=${eachFav.id}>
-    <img class="js__img" src="${eachFav.image}" />${eachFav.name}</li>`;
   }
 }
 
@@ -47,8 +36,6 @@ function getCocktails() {
       }
       renderCocktails();
       addEventToCard();
-      
-
     });
 }
 
@@ -61,46 +48,48 @@ function handleClickButton(event) {
 
 }
 
-
-
 //Función click en cóctel
-function handleClickCard(event) {
+/*function handleClickCard(event) {
   event.preventDefault();
+  console.log(event.currentTarget.id);
   //Variable donde almaceno los id de las tarjetas donde sucede el evento(click)
   const idSelected = event.currentTarget.id;
   //Uso find porque me devuelve el primer elemento que cumple la concidión
-  const favCard = cocktails.find(eachCocktail => eachCocktail.id===idSelected);
-  
-  //Uso findIndex para ver las posiciones donde están los cócteles. Si es -1, no está en mi lista de favoritos
-  const indexCocktail = favCocktails.findIndex(eachCocktail => eachCocktail.id===idSelected);
-  console.log(indexCocktail);
-  //Compruebo si ya existe el cóctel en favoritos
-  //si el index no está, añado el cóctel a favoritos
-  if(indexCocktail === -1) {
-    favCocktails.push(favCard);
-    localStorage.setItem('favorites', JSON.stringify(favCard));
-  }
-  console.log(localStorage);
-
-  renderFavCocktails();
-  
-
-}
-
-
+  const favCard = cocktails.find(eachCocktail => eachCocktail.id===idSelected)
+}*/
 
 //Función de evento sobre cóctel
-function addEventToCard() {
+/*function addEventToCard() {
   //Creo una variable en que selecciono todo los elementos con esa clase
   const cards = document.querySelectorAll('.js__list_item');
   //Hago un bucle para llamar al evento sobre cada uno de los elementos sobre los que hago click
   for (const eachCard of cards) {
     eachCard.addEventListener('click', handleClickCard);
   }
-  
-}
+}*/
 
 
 //Evento sobre el botón "Buscar"
 button.addEventListener('click', handleClickButton);
 
+//////////////////////////////////////////////////
+
+const cards = document.querySelector('.js__list_item');
+const idSelected = ev.currentTarget.id;
+
+//Funciones que van dentro de la función manjadora del evento:
+function name() {
+  cocktails.find(eachCocktail => eachCocktail.id === idSelected)
+}
+
+
+//Función manejadora del evento click sobre cada cóctel
+//Dentro de ella llamo a cada función, que componen todo el evento
+function handleClickCard(ev) {
+  //Función para coger los elementos sobre los que suceden el evento
+
+
+}
+
+
+card.addEventListener('click', handleClickCard);
