@@ -7,21 +7,10 @@
     display: flex;
     justify-content: flex-start;
     margin-left: 10%;
-
 }
 .input {
-    width: 400px;
+    width: 30%;
     height: 30px;
-    border-radius: 20px;
-}
-.button {
-border-radius: 20px;
-width: 75px;
-}
-
-.reset {
-    border-radius: 20px;
-    width: 75px;
 }
 
 .div {
@@ -61,7 +50,7 @@ width: 75px;
     -webkit-text-stroke: 1.5px black;
     color: #1A5276;
     background-image: linear-gradient(to top, #F7DC6F, #FCF3CF );
-    margin: 10px;
+    margin: 20px;
     padding: 10px 10px 0px 10px;
     line-height: 50px;
 }
@@ -92,8 +81,5 @@ width: 75px;
     padding-bottom: 10px;
 } 
 .delete {
-    align-self: center;
-    width: 150px;
-    border-radius: 20px;
-    height: 30px;
+    justify-content: center;
 }

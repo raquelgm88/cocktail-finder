@@ -17,7 +17,8 @@ function checkLocalStorage() {
   if (infoStorage) {
     favCocktails = infoStorage;
     renderFavCocktails();
-
+    const deleteIcon = document.querySelector('.js__delete');
+    deleteIcon.addEventListener('click', handleClickDelete);
   }
 
 }
@@ -50,14 +51,10 @@ function renderCocktails () {
 function renderFavCocktails () {
   fav.innerHTML = '';
   for (const eachFav of favCocktails) {
-    fav.innerHTML += `<img class="js__delete" id=${eachFav.id} src="./assets/images/eliminar.png" alt="" /><li class="js__list_item" id=${eachFav.id}>
+    fav.innerHTML += `<li class="js__list_item" id=${eachFav.id}><img class="js__delete" id=${eachFav.id} src="./assets/images/eliminar.png" alt="" />
     <img class="js__img" src="${eachFav.image}" />${eachFav.name}</li>`;
-    //Evento sobre el icono "x"
-    const deleteIcon = document.querySelector('.js__delete');
-    deleteIcon.addEventListener('click', handleClickDelete);
+    
   }
-
-
 
 }
 
@@ -102,7 +99,6 @@ function handleClickButton(event) {
 
 //Función click en cóctel
 function handleClickCard(event) {
-  debugger;
   event.preventDefault();
   //Variable donde almaceno los id de las tarjetas donde sucede el evento(click)
   const id = event.currentTarget.id;
@@ -142,31 +138,13 @@ function handleClickReset() {
   search.value = '';
   getCocktails();
 }
-function toggleClass (id) {
-  const idSelected = document.getElementById(id);
-  idSelected.classList.remove('inverted_colors');
-  idSelected.classList.add('js__list_item');
-}
 
 //
 function handleClickDelete(event){
+  debugger;
   const id = event.currentTarget.id;
-
-  if (id) {
-    const deleteFavs = favCocktails.findIndex(eachCocktail => eachCocktail.id===id);
-    favCocktails.splice(deleteFavs, 1);
-    toggleClass(id);
-  } else {
-
-    for (const cocktail of favCocktails) {
-      toggleClass(cocktail.id);
-    }
-
-    favCocktails = [];
-
-  }
-  localStorage.setItem('favorites', JSON.stringify(favCocktails));
-  renderFavCocktails();
+  const deleteFavs = favCocktails.findIndex(eachCocktail => eachCocktail.id===id);
+  debugger;
 
 }
 
@@ -175,6 +153,9 @@ button.addEventListener('click', handleClickButton);
 
 //Evento sobre el botón "Reset"
 reset.addEventListener('click', handleClickReset);
+
+//Evento sobre el icono "x"
+
 
 //Evento sobre el botón "Borrear favoritos"
 deleteButton.addEventListener('click', handleClickDelete);

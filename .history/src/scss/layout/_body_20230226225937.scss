@@ -7,21 +7,10 @@
     display: flex;
     justify-content: flex-start;
     margin-left: 10%;
-
 }
 .input {
-    width: 400px;
+    width: 30%;
     height: 30px;
-    border-radius: 20px;
-}
-.button {
-border-radius: 20px;
-width: 75px;
-}
-
-.reset {
-    border-radius: 20px;
-    width: 75px;
 }
 
 .div {
@@ -92,8 +81,6 @@ width: 75px;
     padding-bottom: 10px;
 } 
 .delete {
-    align-self: center;
-    width: 150px;
-    border-radius: 20px;
-    height: 30px;
+    justify-content: center;
+    width: 250px;
 }

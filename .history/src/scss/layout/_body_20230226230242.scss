@@ -7,21 +7,14 @@
     display: flex;
     justify-content: flex-start;
     margin-left: 10%;
-
 }
 .input {
-    width: 400px;
+    width: 30%;
     height: 30px;
     border-radius: 20px;
 }
-.button {
+.button .reset {
 border-radius: 20px;
-width: 75px;
-}
-
-.reset {
-    border-radius: 20px;
-    width: 75px;
 }
 
 .div {

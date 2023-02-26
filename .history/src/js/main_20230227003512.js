@@ -53,8 +53,8 @@ function renderFavCocktails () {
     fav.innerHTML += `<img class="js__delete" id=${eachFav.id} src="./assets/images/eliminar.png" alt="" /><li class="js__list_item" id=${eachFav.id}>
     <img class="js__img" src="${eachFav.image}" />${eachFav.name}</li>`;
     //Evento sobre el icono "x"
-    const deleteIcon = document.querySelector('.js__delete');
-    deleteIcon.addEventListener('click', handleClickDelete);
+  const deleteIcon = document.querySelector('.js__delete');
+  deleteIcon.addEventListener('click', handleClickDelete);
   }
 
 
@@ -142,28 +142,27 @@ function handleClickReset() {
   search.value = '';
   getCocktails();
 }
-function toggleClass (id) {
-  const idSelected = document.getElementById(id);
-  idSelected.classList.remove('inverted_colors');
-  idSelected.classList.add('js__list_item');
-}
 
 //
 function handleClickDelete(event){
   const id = event.currentTarget.id;
-
+  
   if (id) {
     const deleteFavs = favCocktails.findIndex(eachCocktail => eachCocktail.id===id);
     favCocktails.splice(deleteFavs, 1);
-    toggleClass(id);
+    const idSelected = document.getElementById(id);
+    idSelected.classList.remove('inverted_colors');
+    idSelected.classList.add('js__list_item');
   } else {
 
     for (const cocktail of favCocktails) {
-      toggleClass(cocktail.id);
+      const idSelected = document.getElementById(cocktail.id);
+      idSelected.classList.remove('inverted_colors');
+      idSelected.classList.add('js__list_item');
     }
 
     favCocktails = [];
-
+  
   }
   localStorage.setItem('favorites', JSON.stringify(favCocktails));
   renderFavCocktails();

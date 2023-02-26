@@ -53,8 +53,10 @@ function renderFavCocktails () {
     fav.innerHTML += `<img class="js__delete" id=${eachFav.id} src="./assets/images/eliminar.png" alt="" /><li class="js__list_item" id=${eachFav.id}>
     <img class="js__img" src="${eachFav.image}" />${eachFav.name}</li>`;
     //Evento sobre el icono "x"
-    const deleteIcon = document.querySelector('.js__delete');
-    deleteIcon.addEventListener('click', handleClickDelete);
+  debugger;
+  const deleteIcon = document.querySelector('.js__delete');
+  debugger;
+  deleteIcon.addEventListener('click', handleClickDelete);
   }
 
 
@@ -142,28 +144,21 @@ function handleClickReset() {
   search.value = '';
   getCocktails();
 }
-function toggleClass (id) {
-  const idSelected = document.getElementById(id);
-  idSelected.classList.remove('inverted_colors');
-  idSelected.classList.add('js__list_item');
-}
 
 //
 function handleClickDelete(event){
+  debugger;
   const id = event.currentTarget.id;
+  
+  debugger;
+  
+  
 
   if (id) {
     const deleteFavs = favCocktails.findIndex(eachCocktail => eachCocktail.id===id);
     favCocktails.splice(deleteFavs, 1);
-    toggleClass(id);
   } else {
-
-    for (const cocktail of favCocktails) {
-      toggleClass(cocktail.id);
-    }
-
     favCocktails = [];
-
   }
   localStorage.setItem('favorites', JSON.stringify(favCocktails));
   renderFavCocktails();
