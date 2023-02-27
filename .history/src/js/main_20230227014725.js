@@ -142,7 +142,7 @@ function addEventToCard() {
 }
 
 //Función del evento reset
-function handleClickReset(event) {
+function handleClickReset() {
   event.preventDefault();
   search.value = '';
   getCocktails();

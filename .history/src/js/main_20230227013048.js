@@ -17,7 +17,9 @@ function checkLocalStorage() {
   if (infoStorage) {
     favCocktails = infoStorage;
     renderFavCocktails();
+
   }
+
 }
 
 checkLocalStorage();
@@ -40,7 +42,9 @@ function renderCocktails () {
     cocktailList.innerHTML += `<li class="${listClass}" id=${eachCocktail.id}>
 <img class="js__img" src="${eachCocktail.image}" />${eachCocktail.name}</li>`;
   }
+
 }
+
 
 //Función para pintar los favoritos en el HTML
 function renderFavCocktails () {
@@ -99,6 +103,7 @@ function handleClickButton(event) {
 //Función click en cóctel
 function handleClickCard(event) {
   event.preventDefault();
+  debugger;
   //Variable donde almaceno los id de las tarjetas donde sucede el evento(click)
   const id = event.currentTarget.id;
   //Uso find porque me devuelve el primer elemento que cumple la concidión
@@ -129,10 +134,11 @@ function handleClickCard(event) {
 
 //Función de evento sobre cóctel
 function addEventToCard() {
-  //Creo dos variables en las que selecciono todos los elementos con esas dos clases
+  debugger;
+  //Creo una variable en que selecciono todo los elementos con esa clase
   const cards = document.querySelectorAll('.js__list_item');
   const cardsSelected = document.querySelectorAll('.inverted_colors');
-  //Hago un bucle para llamar al evento sobre cada uno de los elementos sobre los que hago click, 
+  //Hago un bucle para llamar al evento sobre cada uno de los elementos sobre los que hago click
   for (const eachCard of cards) {
     eachCard.addEventListener('click', handleClickCard);
   }
@@ -142,20 +148,17 @@ function addEventToCard() {
 }
 
 //Función del evento reset
-function handleClickReset(event) {
-  event.preventDefault();
+function handleClickReset() {
   search.value = '';
   getCocktails();
 }
-
-//Función para cambiar las clases
 function toggleClass (id) {
   const idSelected = document.getElementById(id);
   idSelected.classList.remove('inverted_colors');
   idSelected.classList.add('js__list_item');
 }
 
-//Función sobre el evento de borrar favoritos
+//
 function handleClickDelete(event){
   const id = event.currentTarget.id;
 
@@ -183,5 +186,5 @@ button.addEventListener('click', handleClickButton);
 //Evento sobre el botón "Reset"
 reset.addEventListener('click', handleClickReset);
 
-//Evento sobre el botón "Borrar favoritos"
+//Evento sobre el botón "Borrear favoritos"
 deleteButton.addEventListener('click', handleClickDelete);

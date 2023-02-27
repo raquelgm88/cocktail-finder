@@ -129,10 +129,11 @@ function handleClickCard(event) {
 
 //Función de evento sobre cóctel
 function addEventToCard() {
-  //Creo dos variables en las que selecciono todos los elementos con esas dos clases
+  
+  //Creo una variable en que selecciono todo los elementos con esa clase
   const cards = document.querySelectorAll('.js__list_item');
   const cardsSelected = document.querySelectorAll('.inverted_colors');
-  //Hago un bucle para llamar al evento sobre cada uno de los elementos sobre los que hago click, 
+  //Hago un bucle para llamar al evento sobre cada uno de los elementos sobre los que hago click
   for (const eachCard of cards) {
     eachCard.addEventListener('click', handleClickCard);
   }
@@ -142,7 +143,7 @@ function addEventToCard() {
 }
 
 //Función del evento reset
-function handleClickReset(event) {
+function handleClickReset() {
   event.preventDefault();
   search.value = '';
   getCocktails();

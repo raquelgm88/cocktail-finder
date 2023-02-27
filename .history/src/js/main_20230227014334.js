@@ -99,6 +99,7 @@ function handleClickButton(event) {
 //Función click en cóctel
 function handleClickCard(event) {
   event.preventDefault();
+  debugger;
   //Variable donde almaceno los id de las tarjetas donde sucede el evento(click)
   const id = event.currentTarget.id;
   //Uso find porque me devuelve el primer elemento que cumple la concidión
@@ -129,10 +130,11 @@ function handleClickCard(event) {
 
 //Función de evento sobre cóctel
 function addEventToCard() {
-  //Creo dos variables en las que selecciono todos los elementos con esas dos clases
+  
+  //Creo una variable en que selecciono todo los elementos con esa clase
   const cards = document.querySelectorAll('.js__list_item');
   const cardsSelected = document.querySelectorAll('.inverted_colors');
-  //Hago un bucle para llamar al evento sobre cada uno de los elementos sobre los que hago click, 
+  //Hago un bucle para llamar al evento sobre cada uno de los elementos sobre los que hago click
   for (const eachCard of cards) {
     eachCard.addEventListener('click', handleClickCard);
   }
@@ -142,8 +144,7 @@ function addEventToCard() {
 }
 
 //Función del evento reset
-function handleClickReset(event) {
-  event.preventDefault();
+function handleClickReset() {
   search.value = '';
   getCocktails();
 }
@@ -157,6 +158,7 @@ function toggleClass (id) {
 
 //Función sobre el evento de borrar favoritos
 function handleClickDelete(event){
+  //Almaceno el id del current target
   const id = event.currentTarget.id;
 
   if (id) {
