@@ -82,6 +82,8 @@ function renderFavCocktails () {
   addEventToX();
 }
 
+
+
 //Función click botón "Buscar"
 function handleClickButton(event) {
   event.preventDefault();

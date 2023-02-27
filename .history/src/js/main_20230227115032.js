@@ -47,8 +47,6 @@ function getCocktails() {
       addEventToCard();
     });
 }
-
-//Ejecuto las funciones necesarias para iniciar la aplicación
 checkLocalStorage();
 getCocktails();
 
@@ -81,6 +79,8 @@ function renderFavCocktails () {
 
   addEventToX();
 }
+
+
 
 //Función click botón "Buscar"
 function handleClickButton(event) {

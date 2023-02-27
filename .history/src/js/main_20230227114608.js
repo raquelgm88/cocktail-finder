@@ -20,37 +20,9 @@ function checkLocalStorage() {
   }
 }
 
-//Función para obtener los datos de la API
-function getCocktails() {
-  let value = '';
-
-  if (search.value === '') {
-    value = 'margarita';
-  } else {
-    value = search.value;
-  }
-
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
-    .then((response) => response.json())
-    .then((data) => {
-      cocktails = data.drinks.map((drink)=>({
-        name: drink.strDrink,
-        image: drink.strDrinkThumb,
-        id: drink.idDrink
-      }) );
-      for (let i=0; i<cocktails.length; i++) {
-        if (cocktails[i].image === null) {
-          cocktails[i].image = 'https://via.placeholder.com/210x295/ffffff/666666/?text=Cocktail';
-        }
-      }
-      renderCocktails();
-      addEventToCard();
-    });
-}
-
-//Ejecuto las funciones necesarias para iniciar la aplicación
 checkLocalStorage();
 getCocktails();
+
 
 //Función para pintar los cócteles en el HTML según si están en favoritos o no
 function renderCocktails () {
@@ -82,6 +54,34 @@ function renderFavCocktails () {
   addEventToX();
 }
 
+//Función para obtener los datos de la API
+function getCocktails() {
+  let value = '';
+
+  if (search.value === '') {
+    value = 'margarita';
+  } else {
+    value = search.value;
+  }
+
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
+    .then((response) => response.json())
+    .then((data) => {
+      cocktails = data.drinks.map((drink)=>({
+        name: drink.strDrink,
+        image: drink.strDrinkThumb,
+        id: drink.idDrink
+      }) );
+      for (let i=0; i<cocktails.length; i++) {
+        if (cocktails[i].image === null) {
+          cocktails[i].image = 'https://via.placeholder.com/210x295/ffffff/666666/?text=Cocktail';
+        }
+      }
+      renderCocktails();
+      addEventToCard();
+    });
+}
+
 //Función click botón "Buscar"
 function handleClickButton(event) {
   event.preventDefault();
@@ -111,10 +111,10 @@ function handleClickCard(event) {
   if(indexCocktail === -1) {
     favCocktails.push(favCard);
     localStorage.setItem('favorites', JSON.stringify(favCocktails));
-    toggleClass(id, 'js__list_item', 'inverted_colors');
+    toggleClass(event.currentTarget.id, 'js__list_item', 'inverted_colors');
   } else {
     favCocktails.splice(indexCocktail, 1);
-    toggleClass(id, 'inverted_colors', 'js__list_item');
+    toggleClass(event.currentTarget.id, 'inverted_colors', 'js__list_item');
   }
 
   renderFavCocktails();
