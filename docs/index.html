@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Buscador de Cócteles</title>
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="icon" href="./assets/images/coctel.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Damion&family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <h1>Buscador de Cócteles</h1>
+    </header>
+
+    <main class="main">
+      <form action="#" class="form">
+        <input
+          type="text"
+          name="input"
+          class="input js__input"
+          id="input"
+          value=""
+          placeholder="Ejemplo: margarita"
+        />
+        <button type="button" class="button js__button">Buscar</button>
+        <button type="reset" class="reset js__reset">Reset</button>
+      </form>
+      <div class="div">
+        <section class="list">
+          <h2 class="h2">Lista</h2>
+          <ul class="ul_list js__ul_list" id="list"></ul>
+        </section>
+        <section class="fav">
+          <h2 class="h2">Cócteles Favoritos</h2>
+          <ul class="ul_fav js__ul_fav"></ul>
+          <button type="button" class="delete_button js__delete_button">
+            Borrar Favoritos
+          </button>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>© Todos los derechos reservados</p>
+    </footer>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
