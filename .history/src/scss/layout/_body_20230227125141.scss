@@ -1,0 +1,110 @@
+.main {
+    margin-top: 30px;
+
+    .form {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 10%;
+    
+        .input {
+            width: 400px;
+            height: 30px;
+            border-radius: 20px;
+        }
+
+        .button {
+            border-radius: 20px;
+            width: 75px;
+        }
+        
+        .reset {
+                border-radius: 20px;
+                width: 75px;
+        }
+    }
+
+    .div {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 25px;
+
+        .list {
+            width: 400px;
+            margin-right: 10%;
+
+            .h2 {
+
+            }
+
+            .ul {
+                
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+.fav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    margin-left: 10%;
+    
+}
+
+.js__list_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    -webkit-text-stroke: 1.5px black;
+    color: #1A5276;
+    background-image: linear-gradient(to top, #F7DC6F, #FCF3CF );
+    margin: 10px;
+    padding: 10px 10px 0px 10px;
+    line-height: 50px;
+}
+
+.js__img {
+    width: 250px;
+}
+
+.inverted_colors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    background-image: linear-gradient(to top, #1A5276, #7FB3D5 );
+    -webkit-text-stroke: 1px black;
+    color: #F7DC6F;
+    margin: 10px;
+    padding: 10px 10px 0px 10px;
+    line-height: 50px;
+}
+
+.js__delete {
+    width: 25px;
+    align-self: flex-end;
+    padding-bottom: 10px;
+} 
+.delete {
+    align-self: center;
+    width: 150px;
+    border-radius: 20px;
+    height: 30px;
+}

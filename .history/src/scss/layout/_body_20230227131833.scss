@@ -1,0 +1,133 @@
+.main {
+    padding-top: 30px;
+   // background-color: #F7DC6F;
+
+    .form {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 10%;
+    
+        .input {
+            width: 400px;
+            height: 30px;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            padding-left: 10px;
+        }
+
+        .button {
+            border-radius: 20px;
+            width: 75px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            margin-left: 10px;
+            background-color: white;
+
+        }
+        
+        .reset {
+            border-radius: 20px;
+            width: 75px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            margin-left: 10px;
+            background-color: white;
+        }
+    }
+
+    .div {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 25px;
+
+        .list {
+            width: 400px;
+            margin-right: 10%;
+
+            .ul_list {
+
+            }
+        }
+
+        .fav{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 400px;
+            margin-left: 10%;
+
+            .ul_fav {
+
+            }
+            .delete_button {
+                align-self: center;
+                width: 150px;
+                border-radius: 20px;
+                height: 30px;
+                font-family: 'Poppins', sans-serif;
+                font-size: 14px;
+                margin-left: 10px;
+                background-color: white;
+            }
+        }
+
+
+    }
+}
+
+.h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    padding-left: 10px;
+}
+
+//Estilos de clases creadas en JS
+.js__list_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    -webkit-text-stroke: 1.25px black;
+    color: #1A5276;
+    background-image: linear-gradient(to top, #F7DC6F, #FCF3CF );
+    margin: 10px;
+    padding: 10px 10px 0px 10px;
+    line-height: 50px;
+}
+
+.js__img {
+    width: 250px;
+    border-radius: 20px;
+    //box-shadow:  0 8px 8px 0 rgba(0, 0, 0, 0.15);
+    
+}
+
+.inverted_colors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    background-image: linear-gradient(to top, #1A5276, #7FB3D5 );
+    -webkit-text-stroke: 2px black;
+    color: #F7DC6F;
+    margin: 10px;
+    padding: 10px 10px 0px 10px;
+    line-height: 50px;
+}
+
+.js__delete {
+    width: 25px;
+
+} 
