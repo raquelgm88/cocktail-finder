@@ -163,8 +163,6 @@ function toggleClass (id) {
 //Función sobre el evento de borrar favoritos: de uno en uno o todos a la vez
 function handleClickDelete(event){
   event.preventDefault();
-  //El id del current target es el de la "x" que tiene asignado, cuyo id = al de cada cóctel
-  //EL id del current target del botón "borrar favoritos" no existe
   const id = event.currentTarget.id;
 
   if (id) {

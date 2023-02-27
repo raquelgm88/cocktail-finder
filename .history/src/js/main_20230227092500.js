@@ -164,7 +164,7 @@ function toggleClass (id) {
 function handleClickDelete(event){
   event.preventDefault();
   //El id del current target es el de la "x" que tiene asignado, cuyo id = al de cada cóctel
-  //EL id del current target del botón "borrar favoritos" no existe
+  //EL id del current target del botón "borrar favoritos"
   const id = event.currentTarget.id;
 
   if (id) {

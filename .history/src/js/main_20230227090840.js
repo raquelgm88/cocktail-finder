@@ -48,8 +48,10 @@ function renderFavCocktails () {
   for (const eachFav of favCocktails) {
     fav.innerHTML += `<img class="js__delete" id=${eachFav.id} src="./assets/images/eliminar.png" alt="" /><li class="js__list_item" id=${eachFav.id}>
     <img class="js__img" src="${eachFav.image}" />${eachFav.name}</li>`;
+    //Evento sobre el icono "x"
+   // const deleteIcon = document.querySelector('.js__delete');
+    //deleteIcon.addEventListener('click', handleClickDelete);
   }
-  addEventToX();
 }
 
 
@@ -90,12 +92,12 @@ function handleClickButton(event) {
 
 
 
-//Función click en cóctel para añadir a favoritos
+//Función click en cóctel
 function handleClickCard(event) {
   event.preventDefault();
   //Variable donde almaceno los id de las tarjetas donde sucede el evento(click)
   const id = event.currentTarget.id;
-  //Uso find porque me devuelve el primer elemento que cumple la concidión de que cada cóctel tenga el mismo id que el curren target
+  //Uso find porque me devuelve el primer elemento que cumple la concidión
   const favCard = cocktails.find(eachCocktail => eachCocktail.id===id);
 
   //Uso findIndex para ver las posiciones donde están los cócteles. Si es -1, no está en mi lista de favoritos
@@ -126,7 +128,7 @@ function addEventToCard() {
   //Creo dos variables en las que selecciono todos los elementos con esas dos clases
   const cards = document.querySelectorAll('.js__list_item');
   const cardsSelected = document.querySelectorAll('.inverted_colors');
-  //Hago un bucle para llamar al evento sobre cada uno de los elementos sobre los que hago click
+  //Hago un bucle para llamar al evento sobre cada uno de los elementos sobre los que hago click,
   for (const eachCard of cards) {
     eachCard.addEventListener('click', handleClickCard);
   }
@@ -136,13 +138,14 @@ function addEventToCard() {
 }
 
 
-//Función de evento sobre las "x" de favoritos
+//Función de evento sobre cóctel
 function addEventToX() {
-  //Creo una variable donde selecciono todos los elementos con esa clase
-  const deleteIcon = document.querySelectorAll('.js__delete');
-  //Hago un bucle para llamar al evento sobre cada uno de los iconos "x" sobre los que hago click
+  //Creo dos variables en las que selecciono todos los elementos con esas dos clases
+  const deleteIcon = document.querySelector('.js__delete');
+  //Hago un bucle para llamar al evento sobre cada uno de los elementos sobre los que hago click,
   for (const eachDeleteIcon of deleteIcon) {
-    eachDeleteIcon.addEventListener('click', handleClickDelete);
+    eachDeleteIcon.addEventListener('click', handleClickCard);
+    deleteIcon.addEventListener('click', handleClickDelete);
   }
 }
 
@@ -160,11 +163,8 @@ function toggleClass (id) {
   idSelected.classList.add('js__list_item');
 }
 
-//Función sobre el evento de borrar favoritos: de uno en uno o todos a la vez
+//Función sobre el evento de borrar favoritos
 function handleClickDelete(event){
-  event.preventDefault();
-  //El id del current target es el de la "x" que tiene asignado, cuyo id = al de cada cóctel
-  //EL id del current target del botón "borrar favoritos" no existe
   const id = event.currentTarget.id;
 
   if (id) {
