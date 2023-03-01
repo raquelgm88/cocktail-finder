@@ -35,7 +35,10 @@ function getCocktails() {
       cocktails = data.drinks.map((drink)=>({
         name: drink.strDrink,
         image: drink.strDrinkThumb,
-        id: drink.idDrink
+        id: drink.idDrink,
+        ingredient1: drink.strIngredient1,
+        ingredient2: drink.strIngredient2,
+        ingredient3: drink.strIngredient3
       }) );
       for (let i=0; i<cocktails.length; i++) {
         if (cocktails[i].image === null) {
@@ -65,7 +68,7 @@ function renderCocktails () {
       listClass = 'js__list_item';
     }
     cocktailList.innerHTML += `<li class="${listClass}" id=${eachCocktail.id}>
-<img class="js__img" src="${eachCocktail.image}" />${eachCocktail.name}</li>`;
+<img class="js__img" src="${eachCocktail.image}" />${eachCocktail.name}<p>${eachCocktail.ingredient1} ${eachCocktail.ingredient2} ${eachCocktail.ingredient3}</p></li>`;
   }
 }
 
@@ -182,3 +185,12 @@ reset.addEventListener('click', handleClickReset);
 
 //Evento sobre el botón "Borrar favoritos"
 deleteButton.addEventListener('click', handleClickDelete);
+
+
+const buttonLog = document.querySelector('.js__button_log');
+
+function handleClickButtonLog() {
+  console.log(`Tienes ${favCocktails.length} favoritos`);
+}
+
+buttonLog.addEventListener('click', handleClickButtonLog);
