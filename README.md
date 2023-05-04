@@ -1,8 +1,8 @@
-![Adalab](https://beta.adalab.es/resources/images/adalab-logo-155x61-bg-white.png)
+![Buscador de cócteles](https://raw.githubusercontent.com/raquelgm88/cocktail-finder/main/src/images/header-readme.png)
 
 # Buscador de cócteles y bebidas de todo el mundo
 
-Hola, esta aplicación web es el resultado del ejercicio de evaluación final del módulo dos del **bootcamp de Programación Web** de **Adalab**, de la promoción **Salas**.
+¡Hola! Esta aplicación web es el resultado del ejercicio de evaluación final del módulo dos del **Bootcamp de Programación Web** de **Adalab**, de la promoción **Salas**.
 
 ## Cómo funciona la aplicación
 
@@ -45,3 +45,27 @@ Si queremos borrar todos a la vez, haremos click en el botón **"Borrar Favorito
 - Gulp
 - Git
 - API: https://www.thecocktaildb.com/api.php
+
+## Cómo arrancar el proyecto
+
+Necesitas tener instalado [Node JS](https://nodejs.org/en) para poder arrancar este proyecto.
+
+1. Instala las dependecias locales ejecutando en la terminal el comando:
+
+```
+npm install
+```
+
+2. Instala el paquete para SASS:
+
+```
+npm install node-sass
+```
+
+3. Arranca el proyecto ejecutando a continuación en la terminal:
+
+```
+npm start
+```
+
+Se abrirá [http://localhost:3000 ](http://localhost:3000)para ver el proyecto en el navegador en modo desarrollo.
